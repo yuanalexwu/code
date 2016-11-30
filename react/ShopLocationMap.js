@@ -24,7 +24,7 @@ class ShopLocationMap extends Component {
 	importBaiduMap = () => {
 		if (window.BMap === undefined) {
 			const util = new Util();
-			const jsPath = `http://api.map.baidu.com/getscript?v=2.0&ak=7fae2c3df8297e4b7b6dcdfc502439f0`;
+			const jsPath = `http://api.map.baidu.com/getscript?v=2.0&ak=your_key`;
 			util.importJs(jsPath);
 		}
 	};
@@ -81,14 +81,17 @@ class ShopLocationMap extends Component {
 	};
 
 	componentWillMount() {
+		// 加载地图组件
 		this.importBaiduMap();
 	}
 
 	componentDidMount() {
+		// dom初始准备完成初始化地图
 		this.initMap();
 	}
 
 	componentDidUpdate() {
+		// dom更新准备完成初始化地图
 		this.initMap();
 	}
 	

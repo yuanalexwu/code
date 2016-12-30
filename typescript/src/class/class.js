@@ -74,27 +74,40 @@ var __extends = (this && this.__extends) || function (d, b) {
 //         console.log('roaming the earth...');
 //     }
 // }
-var Department = (function () {
-    function Department(name) {
+// abstract class Department {
+//     constructor(public name: string) { }
+//     printName(): void {
+//         console.log("Department name: " + this.name);
+//     }
+//     abstract printMeeting(): void; // must be implemented in derived classes
+// }
+// class AccountingDepartment extends Department {
+//     constructor() {
+//         super('Accounting and Auditing');
+//     }
+//     printMeeting() {
+//         console.log("The Accounting Department meets each Monday at 10am.");
+//     }
+// }
+// let department: Department; // department = new Department();
+// department = new AccountingDepartment();
+// department.printName();
+// department.printMeeting();
+var A = (function () {
+    function A(name) {
         this.name = name;
     }
-    Department.prototype.printName = function () {
-        console.log("Department name: " + this.name);
+    A.prototype.say = function () {
+        console.log(this.name);
     };
-    return Department;
+    return A;
 }());
-var AccountingDepartment = (function (_super) {
-    __extends(AccountingDepartment, _super);
-    function AccountingDepartment() {
-        return _super.call(this, 'Accounting and Auditing') || this;
+var B = (function (_super) {
+    __extends(B, _super);
+    function B(name, age) {
+        var _this = _super.call(this, name) || this;
+        _this.age = age;
+        return _this;
     }
-    AccountingDepartment.prototype.printMeeting = function () {
-        console.log("The Accounting Department meets each Monday at 10am.");
-    };
-    return AccountingDepartment;
-}(Department));
-var department;
-// department = new Department();
-department = new AccountingDepartment();
-department.printName();
-department.printMeeting();
+    return B;
+}(A));

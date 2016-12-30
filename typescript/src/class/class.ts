@@ -81,23 +81,43 @@
 //     }
 // }
 
-abstract class Department {
-    constructor(public name: string) { }
-    printName(): void {
-        console.log("Department name: " + this.name);
+// abstract class Department {
+//     constructor(public name: string) { }
+//     printName(): void {
+//         console.log("Department name: " + this.name);
+//     }
+//     abstract printMeeting(): void; // must be implemented in derived classes
+// }
+// class AccountingDepartment extends Department {
+//     constructor() {
+//         super('Accounting and Auditing');
+//     }
+//     printMeeting() {
+//         console.log("The Accounting Department meets each Monday at 10am.");
+//     }
+// }
+// let department: Department; // department = new Department();
+// department = new AccountingDepartment();
+// department.printName();
+// department.printMeeting();
+
+
+class A {
+    name: ''
+    constructor(name) {
+        this.name = name;
     }
-    abstract printMeeting(): void; // must be implemented in derived classes
+    
+    say() {
+        console.log(this.name);
+    }
 }
-class AccountingDepartment extends Department {
-    constructor() {
-        super('Accounting and Auditing');
-    }
-    printMeeting() {
-        console.log("The Accounting Department meets each Monday at 10am.");
+
+class B extends A {
+    age: 0
+    constructor(name, age) {
+        super(name);
+        this.age = age;
     }
 }
-let department: Department;
-// department = new Department();
-department = new AccountingDepartment();
-department.printName();
-department.printMeeting();
+

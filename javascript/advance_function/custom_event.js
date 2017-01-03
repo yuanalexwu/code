@@ -55,13 +55,13 @@ function Person (name, age) {
   this.name = name
   this.age = age
 }
-Person.prototype = new EventTarget() // inherit all the prototype functions that EventTarget has
-Person.prototype.constructor = Person // set the correct constructor
-Person.prototype.say = function (message) { // add new function for the subclass Person
+Person.prototype = new EventTarget() // 2.inherit all the prototype functions that EventTarget has
+Person.prototype.constructor = Person // 3.set the correct constructor
+Person.prototype.say = function (message) { // 4.add new function for the subclass Person
   this.fire({type: 'message', message: message})
 }
-function handleSay(event) {
-    console.log(this.name + ' says: ' + event.message);
+function handleSay (event) {
+  console.log(this.name + ' says: ' + event.message)
 }
 var person = new Person('Jack', 26)
 person.addHandler('message', handleSay)

@@ -1,8 +1,7 @@
 // worker process
 onmessage = function(e) {
 	console.log('Message receivec from main script');
-	var data = e.data;
-	setTimeout(function() {
-		postMessage(data);
-	}, 2000);
+	var list = e.data.list;
+	var rst = list.sort(function(a, b) { return a - b;});
+	postMessage({list: rst});
 }

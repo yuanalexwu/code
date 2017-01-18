@@ -1,5 +1,5 @@
 import counter from './reducer';
-import ActionTypes from './constrant';
+import ActionTypes from '../../constrant';
 
 
 describe('Counter reducer', () => {

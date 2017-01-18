@@ -11,7 +11,8 @@ import mainAction from './actions/mainAction';
 const mapStateToProps = (state) => {
     return {
         counter: state.counter,
-        todos: state.todos
+        todos: state.todos,
+        todosVisibility: state.todosVisibility
     };
 };
 // bind actions to props

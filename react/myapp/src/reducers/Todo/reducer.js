@@ -6,7 +6,12 @@ const todo = (state = {}, action) => {
     switch (action.type) {
         case ActionTypes.TODO_ADD:
         {
-            return state;
+            const { id, text } = action;
+            return {
+                id,
+                text,
+                completed: false
+            };
         }
         case ActionTypes.TODO_TOGGLE:
         {
@@ -23,8 +28,7 @@ const todos = (state = [], action) => {
     switch (action.type) {
         case ActionTypes.TODO_ADD:
         {
-            const { todo: newTodo } = action;
-            return [...state, todo(newTodo, action)];
+            return [...state, todo(undefined, action)];
         }
         case ActionTypes.TODO_TOGGLE:
         {
@@ -47,15 +51,18 @@ const todos = (state = [], action) => {
 
 
 
-// todos filter
-const visibilityFilter = (state = ActionTypes.TODO_SHOW_ALL, action) => {
+// set visibility
+export function todosVisibility(state = ActionTypes.TODO_SHOW_ALL, action) {
     switch(action.type) {
-        case ActionTypes.TODO_SET_VISIBILITY:
-            return action.filter;
-        default:
+        case ActionTypes.TODO_SET_VISIBILITY:{
+            const { visibility } = action;
+            return visibility;
+        }
+        default: {
             return state;
+        }
     }
-};
+}
 
 
 export default todos;

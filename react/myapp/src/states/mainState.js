@@ -4,7 +4,7 @@ import todos from './Todo/defaultState';
 
 const mainState = {
     counter,
-    todos,
+    ...todos,
 };
 
 

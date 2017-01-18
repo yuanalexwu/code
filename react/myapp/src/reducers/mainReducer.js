@@ -1,10 +1,11 @@
 import counter from './Counter/reducer';
-import todos from './Todo/reducer';
+import todos, {todosVisibility} from './Todo/reducer';
 
 
 const mainReducer = {
     counter,
     todos,
+    todosVisibility,
 };
 
 

@@ -1,4 +1,21 @@
-import ActionTypes from './constrant';
+import ActionTypes from '../../constrant';
+
+
+// single todo reducer
+const todo = (state = {}, action) => {
+    switch (action.type) {
+        case ActionTypes.TODO_ADD:
+        {
+            return state;
+        }
+        case ActionTypes.TODO_TOGGLE:
+        {
+            return {...state, ...{completed: !state.completed}};
+        }
+        default:
+            return state;
+    }
+};
 
 
 // todos reducer
@@ -28,21 +45,6 @@ const todos = (state = [], action) => {
     }
 };
 
-// single todo reducer
-const todo = (state = {}, action) => {
-    switch (action.type) {
-        case ActionTypes.TODO_ADD:
-        {
-            return state;
-        }
-        case ActionTypes.TODO_TOGGLE:
-        {
-            return {...state, ...{completed: !state.completed}};
-        }
-        default:
-            return state;
-    }
-};
 
 
 // todos filter

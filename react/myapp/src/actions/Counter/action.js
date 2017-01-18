@@ -1,4 +1,4 @@
-import ActionTypes from './constrant';
+import ActionTypes from '../../constrant';
 
 
 export function counterIncrement() {
@@ -10,10 +10,10 @@ export function counterDecrement () {
 }
 
 
-const counterAction = {
+const counterActions = {
     counterIncrement,
     counterDecrement
 };
 
 
-export default counterAction;
+export default counterActions;

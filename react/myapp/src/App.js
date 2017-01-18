@@ -10,9 +10,9 @@ import Counter from './components/Counter';
 import Todo from './components/Todo';
 import NotFound from './components/NotFound';
 // import reducers
-import mainReducer from './components/mainReducer';
+import mainReducer from './reducers/mainReducer';
 // import default states
-import defaultState from './components/defaultState';
+import mainState from './states/mainState';
 
 
 /* Store */ 
@@ -21,7 +21,7 @@ export const store = createStore(
       ...mainReducer,
       routing: routerReducer
     }),
-    defaultState
+    mainState
 );
 /* History */ 
 export const history = syncHistoryWithStore(browserHistory, store);

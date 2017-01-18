@@ -2,10 +2,10 @@ import counter from './Counter/defaultState';
 import todos from './Todo/defaultState';
 
 
-const defaultState = {
+const mainState = {
     counter,
     todos,
 };
 
 
-export default defaultState;
+export default mainState;

@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import connectComponent from '../connectComponent';
+import connectComponent from '../../connectComponent';
 
 
 class Todo extends Component {

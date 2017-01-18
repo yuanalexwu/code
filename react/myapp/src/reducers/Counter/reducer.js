@@ -1,4 +1,4 @@
-import ActionTypes from './constrant';
+import ActionTypes from '../../constrant';
 
 
 const counter = (state = {}, action) => {

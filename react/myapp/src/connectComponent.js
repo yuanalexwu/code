@@ -4,12 +4,8 @@
 import { bindActionCreators } from 'redux';
 import { connect} from 'react-redux';
 // import actions
-import CounterAction from './Counter/action';
+import mainAction from './actions/mainAction';
 
-
-const publicActions = {
-    ...CounterAction
-};
 
 // bind state
 const mapStateToProps = (state) => {
@@ -20,7 +16,7 @@ const mapStateToProps = (state) => {
 };
 // bind actions to props
 const mapDispatchToProps = (dispatch) => {
-    return bindActionCreators(publicActions, dispatch);
+    return bindActionCreators(mainAction, dispatch);
 };
 // connect data to component props
 const connectComponent = (module) => {

@@ -1,3 +1,6 @@
+[ ] May be we can map diferent states and actions for the diferent components(src/connectComponent.js)
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>

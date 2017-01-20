@@ -1,58 +1,37 @@
 import React, {Component} from 'react';
 import connectComponent from '../../connectComponent';
 import actionTypes from '../../constrant';
+import './style.css';
 
 
-// filter link
-const VisibleFilter = (props) => {
-    const { todosVisibility } = props;
-    const handleChange = (visibility) => {
-        return (e) => {
-            props.todoChangeVisibility(visibility);
-        };
-    };
-
-    const getFilterLink = (todosVisibility, visibility, text) => {
-        return todosVisibility !== visibility ?
-            <a href='#' onClick={handleChange(visibility)}>{text}</a> :
-            text
-    };
-
-    return (
-        <div>Show: 
-            {getFilterLink(todosVisibility, actionTypes.TODO_SHOW_ALL, 'All')}
-            {' '}
-            {getFilterLink(todosVisibility, actionTypes.TODO_SHOW_ACTIVE, 'Active')}
-            {' '}
-            {getFilterLink(todosVisibility, actionTypes.TODO_SHOW_COMPLETED, 'Completed')}
-        </div>
-    );
-};
-
-
-let todoId = 0;
-class Todo extends Component {
-
-    handleToggle = (id) => {
-        return (event) => {
-            this.props.todoToggle(id);
-        };
-    };
-
-    handleAdd = () => {
-        let text = this.input.value;
+const AddTodo = connectComponent((props) => {
+    let inputNode;
+    const handleAdd = () => {
+        let text = inputNode.value;
         text = text.trim();
         if (text === '') {
             console.log('empty');
             return false;
         }
-        this.props.todoAdd(todoId++ , text);
+        props.todoAdd(text);
         // 重置form的状态
-        this.input.value = '';
+        inputNode.value = '';
     };
 
-    getVisibilityTodos = () => {
-        const { todos, todosVisibility } = this.props;
+    console.log('AddTodo');
+    return (
+        <div style={{textAlign: 'center'}}>
+            <input placeholder="请输入待完成任务" ref={node => inputNode = node}/>
+            <button onClick={handleAdd}>ADD TODO</button>
+        </div>
+    );
+});
+
+
+// todo list
+const TodoList = connectComponent((props) => {
+    const getVisibilityTodos = () => {
+        const { todos, todosVisibility } = props;
         switch(todosVisibility) {
             case actionTypes.TODO_SHOW_ALL: {
                 return todos;
@@ -65,38 +44,76 @@ class Todo extends Component {
             }
             default:
                 return todos;
+                // eslint-disable-next-line
         };
     };
-    
+    const filteredTodos = getVisibilityTodos();
+    console.log('TodoList', filteredTodos);
+
+    const handleToggle = id => (event) => {
+        props.todoToggle(id);
+    };
+
+    return (
+        <ul>
+        {
+            filteredTodos.map(todo => 
+                <li key={todo.id} onClick={handleToggle(todo.id)} className="todo_list_li">
+                    <span
+                        style={{textDecoration: todo.completed ? 'line-through' : 'none'}}
+                    >
+                        {todo.text}
+                    </span>
+                </li>
+            )
+        }
+        </ul>
+    );
+});
 
 
+// filter link
+const FilterLink = connectComponent((props) => {
+    const { todosVisibility } = props;
+    const handleChange = (visibility) => {
+        return (e) => {
+            props.todoChangeVisibility(visibility);
+        };
+    };
+
+    const getFilterLink = (todosVisibility, visibility, text) => {
+        return todosVisibility !== visibility ?
+            <a href='#' onClick={handleChange(visibility)}>{text}</a> :
+            text
+    };
+    console.log('FilterLink');
+    console.log('');
+
+    return (
+        <div style={{textAlign: 'center'}}>Show: 
+            {getFilterLink(todosVisibility, actionTypes.TODO_SHOW_ALL, 'All')}
+            {' '}
+            {getFilterLink(todosVisibility, actionTypes.TODO_SHOW_ACTIVE, 'Active')}
+            {' '}
+            {getFilterLink(todosVisibility, actionTypes.TODO_SHOW_COMPLETED, 'Completed')}
+        </div>
+    );
+});
+
+
+class Todo extends Component {
     render() {
-        const { todos } = this.props;
-        const visibleTodos = this.getVisibilityTodos(todos);
-        console.log(visibleTodos);
+        console.log('Todo');
         return (
             <div>
-                <h2>TODO</h2>
-                <input placeholder="请输入待完成任务" ref={input => this.input = input}/>
-                <button onClick={this.handleAdd}>ADD TODO</button>
-                <ul>
-                {
-                    visibleTodos.map( todo =>
-                        <li key={todo.id} onClick={this.handleToggle(todo.id)}>
-                            <span
-                                style={{textDecoration: todo.completed ? 'line-through' : 'none'}}
-                            >
-                                {todo.text}
-                            </span>
-                        </li>
-                    )
-                }
-                </ul>
-                <VisibleFilter {...this.props}/>
+                <h2 style={{textAlign: 'center'}}>TODO</h2>
+                <AddTodo />
+                <TodoList />
+                <FilterLink />
             </div>
         );
     }
 }
 
 
-export default connectComponent(Todo);
+export default Todo;

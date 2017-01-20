@@ -7,7 +7,8 @@ import { connect} from 'react-redux';
 import mainAction from './actions/mainAction';
 
 
-// bind state
+// bind all the state to the wrappered component,
+// or u can specified buy as u needed
 const mapStateToProps = (state) => {
     return {
         counter: state.counter,
@@ -15,11 +16,14 @@ const mapStateToProps = (state) => {
         todosVisibility: state.todosVisibility
     };
 };
-// bind actions to props
+
+// bind actions to props of the wrappered component
+// or u can specified buy as u needed
 const mapDispatchToProps = (dispatch) => {
     return bindActionCreators(mainAction, dispatch);
 };
-// connect data to component props
+
+// do connect data to component props
 const connectComponent = (module) => {
     return connect(mapStateToProps, mapDispatchToProps)(module);
 };

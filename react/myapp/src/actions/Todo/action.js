@@ -1,10 +1,12 @@
 import actionTypes from '../../constrant';
 
 
-export function todoAdd(id, text) {
+let todoId = 0;
+export function todoAdd(text) {
+    todoId++;
     return {
         type: actionTypes.TODO_ADD,
-        id,
+        id: todoId, 
         text
     };
 }

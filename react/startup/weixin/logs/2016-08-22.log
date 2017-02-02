@@ -1,0 +1,7 @@
+[2016-08-22 18:34:25][debug] [1-1]. openid Code: 0212R0O60KGepv1pDmO6000ZN602R0OC
+[2016-08-22 18:34:25][debug] [2]. Get openid url: https://api.weixin.qq.com/sns/oauth2/access_token?appid=wxe375e15cc67fa781&secret=228cf37dd081a8de71dd7cd330b080a7&code=0212R0O60KGepv1pDmO6000ZN602R0OC&grant_type=authorization_code
+[2016-08-22 18:34:26][debug] [2-1]. Get openid return: {"access_token":"LhR_KCVmrR7bGVQJPXV9iKV6y_xx5cM597M8VRMfSZZ_32It02wv8h2A9ao7F3lxGMRAjxdvB9YnukOIRFAkEGpjBR1-B-Pq6SURWlUjZFY","expires_in":7200,"refresh_token":"2VnIqp7knFbngWVNMAJHTowHfRdZc1YJBavcf9kNdwcV8ptximZ6hd4wgJIEkfrcF10D4_kKdV1jzmpT0CImJiUTl8yeu11aXbCb1_Cemcs","openid":"o7WT5jiDEEMeSJ3rL1nJ6zi7jGn0","scope":"snsapi_base"}
+[2016-08-22 18:34:26][debug] [4]. Get access token url: https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=wxe375e15cc67fa781&secret=228cf37dd081a8de71dd7cd330b080a7
+[2016-08-22 18:34:26][debug] [4-1]. Get access token return: {"access_token":"cNbC66zl1Go8phT5JjiZSGS1eaPQAKxf0iIQyM9hdry9mtlH9buxPZdcYIRZU9pyGHR9DhoQRX0ROUqZF0XA30UbLyRDv9kwosZKYPAS1l93JJYBpiP59-q4iwB5TfhPEPUgAJARCH","expires_in":7200}
+[2016-08-22 18:34:26][debug] [3]. Get user info url: https://api.weixin.qq.com/cgi-bin/user/info?access_token=cNbC66zl1Go8phT5JjiZSGS1eaPQAKxf0iIQyM9hdry9mtlH9buxPZdcYIRZU9pyGHR9DhoQRX0ROUqZF0XA30UbLyRDv9kwosZKYPAS1l93JJYBpiP59-q4iwB5TfhPEPUgAJARCH&openid=o7WT5jiDEEMeSJ3rL1nJ6zi7jGn0
+[2016-08-22 18:34:27][debug] [3-1]. Get user info return: {"subscribe":0,"openid":"o7WT5jiDEEMeSJ3rL1nJ6zi7jGn0","tagid_list":[]}

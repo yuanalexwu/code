@@ -1,0 +1,5 @@
+/**
+ * Created by jack on 2016/10/19.
+ */
+export const COMMON_UPDATE_SNACK_BAR = 'COMMON_UPDATE_SNACK_BAR';
+export const COMMON_UPDATE_LOADING = 'COMMON_UPDATE_LOADING';
